@@ -60,10 +60,18 @@ public class ForestParser {
 			}
 		}
 
+		int rowSize = -1;
 		int counter = 0;
 		final int[][] array = new int[forest.size()][];
 		for (final List<Integer> row : forest) {
-			array[counter] = toIntArray(row);
+			final int[] rowArray = toIntArray(row);
+			if (rowSize == -1) {
+				rowSize = rowArray.length;
+			}
+			if (rowSize != rowArray.length) {
+				throw new IllegalStateException("Forest was not a square.");
+			}
+			array[counter] = rowArray;
 			counter++;
 		}
 		LOGGER.info("Parsed forest:\n{}", forest);
