@@ -1,7 +1,6 @@
 package com.github.dwiechert.cm.utils;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,14 +25,9 @@ public class ForestParser {
 
 				forest.add(row);
 			}
-		} catch (final FileNotFoundException e) {
-			// TODO: Test
-			throw new IllegalArgumentException("Forest file does not exist.", e);
 		} catch (final IOException e) {
-			// TODO: Test
 			throw new IllegalStateException("Error parsing forest.", e);
 		} catch (final NumberFormatException e) {
-			// TODO: Test
 			throw new IllegalStateException("Error parsing forest.", e);
 		} finally {
 			if (reader != null) {
@@ -51,7 +45,6 @@ public class ForestParser {
 			array[counter] = toIntArray(row);
 			counter++;
 		}
-		// TODO: Test
 		return array;
 	}
 
