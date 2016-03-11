@@ -11,6 +11,7 @@ import org.junit.Test;
  */
 public class ForestParserTest {
 	private static final String NOT_FOUND = "not.a.file";
+	private static final String INVALID = "src/test/resources/forestParser/invalid.txt";
 	private static final String EMPTY = "src/test/resources/forestParser/empty.txt";
 	private static final String SMALL = "src/test/resources/forestParser/small.txt";
 	private static final String BIG = "src/test/resources/forestParser/big.txt";
@@ -23,6 +24,15 @@ public class ForestParserTest {
 	public void parseForest_FileNotFound() {
 		final ForestParser parser = new ForestParser();
 		parser.parseForest(NOT_FOUND);
+	}
+
+	/**
+	 * Verifies an exception is thrown if the forest file has an invalid number.
+	 */
+	@Test(expected = IllegalStateException.class)
+	public void parseForest_Invalid() {
+		final ForestParser parser = new ForestParser();
+		parser.parseForest(INVALID);
 	}
 
 	/**

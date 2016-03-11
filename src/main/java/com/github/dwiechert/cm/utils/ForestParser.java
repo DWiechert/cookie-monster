@@ -6,7 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ForestParser {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ForestParser.class);
+	
 	public int[][] parseForest(final String file) {
 		final List<List<Integer>> forest = new ArrayList<>();
 
@@ -26,8 +31,10 @@ public class ForestParser {
 				forest.add(row);
 			}
 		} catch (final IOException e) {
+			LOGGER.error("Error parsing forest.", e);
 			throw new IllegalStateException("Error parsing forest.", e);
 		} catch (final NumberFormatException e) {
+			LOGGER.error("Error parsing forest.", e);
 			throw new IllegalStateException("Error parsing forest.", e);
 		} finally {
 			if (reader != null) {
@@ -45,6 +52,7 @@ public class ForestParser {
 			array[counter] = toIntArray(row);
 			counter++;
 		}
+		LOGGER.info("Parsed forest:\n{}", forest);
 		return array;
 	}
 
