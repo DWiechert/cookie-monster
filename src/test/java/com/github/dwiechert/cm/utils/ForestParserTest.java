@@ -13,6 +13,7 @@ public class ForestParserTest {
 	private static final String NOT_FOUND = "not.a.file";
 	private static final String INVALID = "src/test/resources/forestParser/invalid.txt";
 	private static final String EMPTY = "src/test/resources/forestParser/empty.txt";
+	private static final String SINGLE = "src/test/resources/forestParser/single.txt";
 	private static final String SMALL = "src/test/resources/forestParser/small.txt";
 	private static final String BIG = "src/test/resources/forestParser/big.txt";
 	private static final String WEIRD_SHAPE = "src/test/resources/forestParser/weirdShape.txt";
@@ -36,13 +37,24 @@ public class ForestParserTest {
 	}
 
 	/**
-	 * Verifies an empty array is returned if the forest file is empty.
+	 * Verifies an exception is thrown if the forest is empty.
 	 */
-	@Test
+	@Test(expected = IllegalStateException.class)
 	public void parseForest_Empty() {
 		final ForestParser parser = new ForestParser();
 		final int[][] forest = parser.parseForest(EMPTY);
 		assertEquals(0, forest.length);
+	}
+
+	/**
+	 * Verifies a single forest can be properly parsed.
+	 */
+	@Test
+	public void parseForest_Single() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(SINGLE);
+		assertEquals(1, forest.length);
+		assertArrayEquals(new int[] { 1 }, forest[0]);
 	}
 
 	/**

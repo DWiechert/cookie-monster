@@ -53,6 +53,9 @@ public class ForestParser {
 			counter++;
 		}
 		LOGGER.info("Parsed forest:\n{}", forest);
+		if (array.length == 0) {
+			throw new IllegalStateException("Forest was empty.");
+		}
 		return array;
 	}
 
