@@ -24,7 +24,7 @@ public class ForestParser {
 	 *            The file to parse.
 	 * @return The parsed forest of integers.
 	 * @throws IllegalStateException
-	 *             If there was an error reading the file or the parsed forest was empty.
+	 *             If there was an error reading the file.
 	 */
 	public int[][] parseForest(final String file) {
 		final List<List<Integer>> forest = new ArrayList<>();
@@ -60,24 +60,13 @@ public class ForestParser {
 			}
 		}
 
-		int rowSize = -1;
 		int counter = 0;
 		final int[][] array = new int[forest.size()][];
 		for (final List<Integer> row : forest) {
-			final int[] rowArray = toIntArray(row);
-			if (rowSize == -1) {
-				rowSize = rowArray.length;
-			}
-			if (rowSize != rowArray.length) {
-				throw new IllegalStateException("Forest was not a square.");
-			}
-			array[counter] = rowArray;
+			array[counter] = toIntArray(row);
 			counter++;
 		}
-		LOGGER.info("Parsed forest:\n{}", forest);
-		if (array.length == 0) {
-			throw new IllegalStateException("Forest was empty.");
-		}
+		LOGGER.info("Parsed forest:\n{}", array);
 		return array;
 	}
 

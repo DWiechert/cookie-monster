@@ -38,21 +38,12 @@ public class ForestParserTest {
 	}
 
 	/**
-	 * Verifies an exception is thrown if the forest is empty.
+	 * Verifies an empty forest can be properly parsed.
 	 */
-	@Test(expected = IllegalStateException.class)
+	@Test
 	public void parseForest_Empty() {
 		final ForestParser parser = new ForestParser();
 		parser.parseForest(EMPTY);
-	}
-
-	/**
-	 * Verifies an exception is thrown if the forest is not a square.
-	 */
-	@Test(expected = IllegalStateException.class)
-	public void parseForest_WeirdShape() {
-		final ForestParser parser = new ForestParser();
-		parser.parseForest(WEIRD_SHAPE);
 	}
 
 	/**
@@ -96,5 +87,22 @@ public class ForestParserTest {
 		assertArrayEquals(new int[] { 81, 82, 83, 84, 85, 86, 87, 88, 89, 80 }, forest[7]);
 		assertArrayEquals(new int[] { 91, 92, 93, 94, 95, 96, 97, 98, 99, 90 }, forest[8]);
 		assertArrayEquals(new int[] { 101, 102, 103, 104, 105, 106, 107, 108, 109, 100 }, forest[9]);
+	}
+
+	/**
+	 * Verifies a weird shape forest can be properly parsed.
+	 */
+	@Test
+	public void parseForest_WeirdShape() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(WEIRD_SHAPE);
+		assertEquals(7, forest.length);
+		assertArrayEquals(new int[] { 11 }, forest[0]);
+		assertArrayEquals(new int[] { 21, 22 }, forest[1]);
+		assertArrayEquals(new int[] { 31, 32, 33 }, forest[2]);
+		assertArrayEquals(new int[] { 41, 42, 43, 44 }, forest[3]);
+		assertArrayEquals(new int[] { 51, 52, 53 }, forest[4]);
+		assertArrayEquals(new int[] { 61, 62 }, forest[5]);
+		assertArrayEquals(new int[] { 71 }, forest[6]);
 	}
 }

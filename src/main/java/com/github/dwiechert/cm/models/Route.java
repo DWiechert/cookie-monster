@@ -18,7 +18,7 @@ public class Route {
 	 * @param valid
 	 *            the valid to set
 	 */
-	public void setValid(boolean valid) {
+	public void setValid(final boolean valid) {
 		this.valid = valid;
 	}
 
@@ -36,13 +36,20 @@ public class Route {
 	 * @param coordinates
 	 *            the coordinates to set
 	 */
-	public void setCoordinates(List<Coordinate> coordinates) {
+	public void setCoordinates(final List<Coordinate> coordinates) {
 		this.coordinates = coordinates;
+	}
+
+	public void addCoordinate(final Coordinate coordinate) {
+		if (coordinates == null) {
+			coordinates = new ArrayList<>();
+		}
+		coordinates.add(coordinate);
 	}
 
 	/**
 	 * Gets the total number of cookies in this route.
-	 * 
+	 *
 	 * @return The total number of cookies or {@code -1} if this route is invalid.
 	 */
 	public int getTotalCookies() {
@@ -54,25 +61,25 @@ public class Route {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((coordinates == null) ? 0 : coordinates.hashCode());
+		result = prime * result + (coordinates == null ? 0 : coordinates.hashCode());
 		result = prime * result + (valid ? 1231 : 1237);
 		return result;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
@@ -82,7 +89,7 @@ public class Route {
 		if (!(obj instanceof Route)) {
 			return false;
 		}
-		Route other = (Route) obj;
+		final Route other = (Route) obj;
 		if (coordinates == null) {
 			if (other.coordinates != null) {
 				return false;
@@ -98,7 +105,7 @@ public class Route {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
