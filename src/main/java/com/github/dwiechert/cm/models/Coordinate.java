@@ -1,13 +1,26 @@
 package com.github.dwiechert.cm.models;
 
+/**
+ * Class to hold information about a coordinate.
+ * 
+ * @author Dan Wiechert
+ */
 public class Coordinate {
+	private static final String TO_STRING_FORMAT = "(%s, %s)";
 	private int x;
 	private int y;
 	private int numCookies;
-	
-	public Coordinate() {
-	}
-	
+
+	/**
+	 * Full constructor.
+	 * 
+	 * @param x
+	 *            The x coordinate.
+	 * @param y
+	 *            The y coordinate.
+	 * @param numCookies
+	 *            The number of cookies at this coordinate.
+	 */
 	public Coordinate(final int x, final int y, final int numCookies) {
 		this.x = x;
 		this.y = y;
@@ -111,5 +124,14 @@ public class Coordinate {
 	@Override
 	public String toString() {
 		return "Coordinate [x=" + x + ", y=" + y + ", numCookies=" + numCookies + "]";
+	}
+
+	/**
+	 * Provides a nicely formatted coordinate.
+	 * 
+	 * @return The formatted coordinate.
+	 */
+	public String format() {
+		return String.format(TO_STRING_FORMAT, x, y);
 	}
 }

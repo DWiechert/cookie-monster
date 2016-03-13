@@ -13,8 +13,10 @@ import com.github.dwiechert.cm.models.Route;
  */
 public class ForestSolverTest {
 	private static final String SINGLE = "src/test/resources/forestSolver/single.txt";
-	private static final String ONE_PATH = "src/test/resources/forestSolver/onePath.txt";
-	
+	private static final String NO_ROUTES = "src/test/resources/forestSolver/noRoutes.txt";
+	private static final String ONE_ROUTE = "src/test/resources/forestSolver/oneRoute.txt";
+	private static final String MULTIPLE_ROUTES = "src/test/resources/forestSolver/multipleRoutes.txt";
+
 	/**
 	 * Verifies an exception is thrown if the forest is null.
 	 */
@@ -45,28 +47,62 @@ public class ForestSolverTest {
 		final ForestSolver solver = new ForestSolver();
 		solver.solve(forest);
 	}
-	
+
+	/**
+	 * Verifies an exception is thrown for no possible routes.
+	 */
+	@Test(expected = IllegalStateException.class)
+	public void solve_NoRoutes() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(NO_ROUTES);
+
+		final ForestSolver solver = new ForestSolver();
+		solver.solve(forest);
+	}
+
+	/**
+	 * Verifies a single forest can be properly solved.
+	 */
 	@Test
 	public void solve_Single() {
 		final ForestParser parser = new ForestParser();
 		final int[][] forest = parser.parseForest(SINGLE);
-		
+
 		final ForestSolver solver = new ForestSolver();
 		final Route route = solver.solve(forest);
-		
+
 		assertNotNull(route);
 		assertTrue(route.isValid());
 		assertEquals(1, route.getTotalCookies().intValue());
 	}
-	
+
+	/**
+	 * Verifies a forest with one route can be properly solved.
+	 */
 	@Test
-	public void solve_OnePath() {
+	public void solve_OneRoute() {
 		final ForestParser parser = new ForestParser();
-		final int[][] forest = parser.parseForest(ONE_PATH);
-		
+		final int[][] forest = parser.parseForest(ONE_ROUTE);
+
 		final ForestSolver solver = new ForestSolver();
 		final Route route = solver.solve(forest);
-		
+
+		assertNotNull(route);
+		assertTrue(route.isValid());
+		assertEquals(110, route.getTotalCookies().intValue());
+	}
+
+	/**
+	 * Verifies a forest with multiple route can be properly solved and the one with the most cookies is returned.
+	 */
+	@Test
+	public void solve_MultipleRoutes() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(MULTIPLE_ROUTES);
+
+		final ForestSolver solver = new ForestSolver();
+		final Route route = solver.solve(forest);
+
 		assertNotNull(route);
 		assertTrue(route.isValid());
 		assertEquals(128, route.getTotalCookies().intValue());

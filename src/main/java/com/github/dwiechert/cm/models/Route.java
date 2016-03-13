@@ -3,6 +3,11 @@ package com.github.dwiechert.cm.models;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to hold information about a route.
+ * 
+ * @author Dan Wiechert
+ */
 public class Route {
 	private boolean valid;
 	private List<Coordinate> coordinates;
@@ -40,6 +45,12 @@ public class Route {
 		this.coordinates = coordinates;
 	}
 
+	/**
+	 * Adds a coordinate to this route.
+	 * 
+	 * @param coordinate
+	 *            The coordinate to add.
+	 */
 	public void addCoordinate(final Coordinate coordinate) {
 		if (coordinates == null) {
 			coordinates = new ArrayList<>();
