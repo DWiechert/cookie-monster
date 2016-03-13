@@ -1,6 +1,7 @@
 package com.github.dwiechert.cm.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -140,9 +141,14 @@ public class Route {
 	 * @return The formatted route.
 	 */
 	public String format() {
+		// Reverse the coordinates since the system solves the forest from end to start
+		Collections.reverse(getCoordinates());
+
 		final StringBuilder builder = new StringBuilder();
 		builder.append(String.format(TO_STRING_FORMAT, isValid(), getTotalCookies()));
-		getCoordinates().forEach(c -> builder.append(c.format()));
+		if (isValid()) {
+			getCoordinates().forEach(c -> builder.append(c.format()).append(", "));
+		}
 		return builder.toString();
 	}
 }
