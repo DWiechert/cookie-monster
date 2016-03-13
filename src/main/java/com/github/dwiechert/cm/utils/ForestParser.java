@@ -70,6 +70,13 @@ public class ForestParser {
 		return array;
 	}
 
+	/**
+	 * Translates a list into an array.
+	 * 
+	 * @param list
+	 *            The list.
+	 * @return The array.
+	 */
 	private int[] toIntArray(final List<Integer> list) {
 		final int[] array = new int[list.size()];
 		for (int i = 0; i < list.size(); i++) {

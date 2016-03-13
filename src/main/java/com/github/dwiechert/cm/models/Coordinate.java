@@ -6,6 +6,15 @@ package com.github.dwiechert.cm.models;
  * @author Dan Wiechert
  */
 public class Coordinate {
+	/**
+	 * String format for this coordinate.
+	 * <p/>
+	 * Should be formatted with the following variables:
+	 * <ol>
+	 * <li>x</li>
+	 * <li>y</li>
+	 * </ol>
+	 */
 	private static final String TO_STRING_FORMAT = "(%s, %s)";
 	private int x;
 	private int y;
@@ -132,6 +141,6 @@ public class Coordinate {
 	 * @return The formatted coordinate.
 	 */
 	public String format() {
-		return String.format(TO_STRING_FORMAT, x, y);
+		return String.format(TO_STRING_FORMAT, getX(), getY());
 	}
 }

@@ -1,6 +1,9 @@
 package com.github.dwiechert.cm.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -49,15 +52,19 @@ public class ForestSolverTest {
 	}
 
 	/**
-	 * Verifies an exception is thrown for no possible routes.
+	 * Verifies a forest with no possible routes cannot be solved.
 	 */
-	@Test(expected = IllegalStateException.class)
+	@Test
 	public void solve_NoRoutes() {
 		final ForestParser parser = new ForestParser();
 		final int[][] forest = parser.parseForest(NO_ROUTES);
 
 		final ForestSolver solver = new ForestSolver();
-		solver.solve(forest);
+		final Route route = solver.solve(forest);
+
+		assertNotNull(route);
+		assertFalse(route.isValid());
+		assertEquals(-1, route.getTotalCookies().intValue());
 	}
 
 	/**

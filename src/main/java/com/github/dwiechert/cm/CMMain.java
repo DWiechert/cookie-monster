@@ -34,7 +34,6 @@ public class CMMain {
 
 		final ForestSolver solver = new ForestSolver();
 		final Route route = solver.solve(forest);
-		// TODO: Add a good toString to route
-		LOGGER.info("The best route is:{}", route);
+		LOGGER.info("The best route is:{}", route.format());
 	}
 }

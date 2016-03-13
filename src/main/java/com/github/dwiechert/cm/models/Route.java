@@ -9,6 +9,16 @@ import java.util.List;
  * @author Dan Wiechert
  */
 public class Route {
+	/**
+	 * String format for this route.
+	 * <p/>
+	 * Should be formatted with the following variables:
+	 * <ol>
+	 * <li>isValid</li>
+	 * <li>number of cookies</li>
+	 * </ol>
+	 */
+	private static final String TO_STRING_FORMAT = "Is valid?: %s\n" + "Number of cookies: %d\n" + "Coordinates:\n";
 	private boolean valid;
 	private List<Coordinate> coordinates;
 
@@ -122,5 +132,17 @@ public class Route {
 	@Override
 	public String toString() {
 		return "Route [valid=" + valid + ", coordinates=" + coordinates + "]";
+	}
+
+	/**
+	 * Provides a nicely formatted route.
+	 * 
+	 * @return The formatted route.
+	 */
+	public String format() {
+		final StringBuilder builder = new StringBuilder();
+		builder.append(String.format(TO_STRING_FORMAT, isValid(), getTotalCookies()));
+		getCoordinates().forEach(c -> builder.append(c.format()));
+		return builder.toString();
 	}
 }
