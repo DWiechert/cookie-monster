@@ -7,7 +7,7 @@
 * **[Overview](#overview)**
 * **[Requirements](#requirements)**
 * **[Running](#running)**
-* **[Examples](#Examples)**
+* **[Examples](#examples)**
 
 ## Overview
 Description copied from [Ruby Quiz](http://rubyquiz.strd6.com/quizzes/178-cookie-monster):
