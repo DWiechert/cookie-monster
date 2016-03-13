@@ -24,13 +24,12 @@ java -jar latest-build\cookie-monster-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
 ## Examples
 * Forest with no route `(src/test/resources/forestSolver/noRoutes.txt)`
- * Forest:
 ```
 11 12 -1
 21 -1 -1
 -1 32 33
 ```
- * Example run:
+* Example run:
 ```
 java -jar latest-build\cookie-monster-0.0.1-SNAPSHOT-jar-with-dependencies.jar src\test\resources\forestSolver\noRoutes.txt
 ....
@@ -40,13 +39,12 @@ Number of cookies: -1
 Coordinates:
 ```
 * Forest with one route `(src/test/resources/forestSolver/oneRoute.txt)`
- * Forest:
 ```
 11 12 13
 -1 22 -1
 31 32 33
 ```
- * Example run:
+* Example run:
 ```
 java -jar latest-build\cookie-monster-0.0.1-SNAPSHOT-jar-with-dependencies.jar src\test\resources\forestSolver\oneRoute.txt
 ....
@@ -57,13 +55,12 @@ Coordinates:
 (0, 0), (0, 1), (1, 1), (2, 1), (2, 2),
 ```
 * Forest with multiple routes `(src/test/resources/forestSolver/multipleRoutes.txt)`
- * Forest:
 ```
 11 12 13
 21 22 23
 31 32 33
 ```
- * Example run:
+* Example run:
 ```
 java -jar latest-build\cookie-monster-0.0.1-SNAPSHOT-jar-with-dependencies.jar src\test\resources\forestSolver\multipleRoutes.txt
 ....
