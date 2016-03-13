@@ -52,7 +52,7 @@ public class Route {
 	 *
 	 * @return The total number of cookies or {@code -1} if this route is invalid.
 	 */
-	public int getTotalCookies() {
+	public Integer getTotalCookies() {
 		if (!isValid()) {
 			return -1;
 		}

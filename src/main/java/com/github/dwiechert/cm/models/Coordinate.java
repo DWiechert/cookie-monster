@@ -4,6 +4,15 @@ public class Coordinate {
 	private int x;
 	private int y;
 	private int numCookies;
+	
+	public Coordinate() {
+	}
+	
+	public Coordinate(final int x, final int y, final int numCookies) {
+		this.x = x;
+		this.y = y;
+		this.numCookies = numCookies;
+	}
 
 	/**
 	 * @return the x

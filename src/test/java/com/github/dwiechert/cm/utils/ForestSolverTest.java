@@ -1,6 +1,10 @@
 package com.github.dwiechert.cm.utils;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import com.github.dwiechert.cm.models.Route;
 
 /**
  * Tests for {@link ForestSolver}.
@@ -8,6 +12,9 @@ import org.junit.Test;
  * @author Dan Wiechert
  */
 public class ForestSolverTest {
+	private static final String SINGLE = "src/test/resources/forestSolver/single.txt";
+	private static final String ONE_PATH = "src/test/resources/forestSolver/onePath.txt";
+	
 	/**
 	 * Verifies an exception is thrown if the forest is null.
 	 */
@@ -37,5 +44,31 @@ public class ForestSolverTest {
 
 		final ForestSolver solver = new ForestSolver();
 		solver.solve(forest);
+	}
+	
+	@Test
+	public void solve_Single() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(SINGLE);
+		
+		final ForestSolver solver = new ForestSolver();
+		final Route route = solver.solve(forest);
+		
+		assertNotNull(route);
+		assertTrue(route.isValid());
+		assertEquals(1, route.getTotalCookies().intValue());
+	}
+	
+	@Test
+	public void solve_OnePath() {
+		final ForestParser parser = new ForestParser();
+		final int[][] forest = parser.parseForest(ONE_PATH);
+		
+		final ForestSolver solver = new ForestSolver();
+		final Route route = solver.solve(forest);
+		
+		assertNotNull(route);
+		assertTrue(route.isValid());
+		assertEquals(128, route.getTotalCookies().intValue());
 	}
 }
