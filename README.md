@@ -14,10 +14,15 @@ Description copied from [Ruby Quiz](http://rubyquiz.strd6.com/quizzes/178-cookie
 >Cookie Monster is trying to walk through the Cookie Forest and consume as many cookies as possible. However, there are many different paths that Cookie Monster can take, and he isn’t sure which way is the best way. Help him eat as many cookies as possible by writing a program which finds the optimal path from the upper left part of the forest to the bottom right. Cookie Monster can only move south and east. There are also several thorn patches through which he cannot cross. The forest can be represented as a grid of numbers, where the number represents the amount of cookies in that acre and -1 represents an impassible thorn patch.
 
 ## Requirements
+* Git
 * Java 1.8
 
 ## Running
-The most recent build of the project is located in the `latest-build` folder. It can be ran using just `java -jar`:
+* Clone the project locally:
+```
+git clone https://github.com/DWiechert/cookie-monster.git
+```
+* Run the jar located in the `latest-build` folder:
 ```
 java -jar latest-build\cookie-monster-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
