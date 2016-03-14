@@ -29,7 +29,7 @@ public class ForestParser {
 	public int[][] parseForest(final String file) {
 		final List<List<Integer>> forest = new ArrayList<>();
 
-		try(final BufferedReader reader = new BufferedReader(new FileReader(file))) {
+		try (final BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
 			String line;
 			while ((line = reader.readLine()) != null) {
