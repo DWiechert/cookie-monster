@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ForestParser}.
- * 
+ *
  * @author Dan Wiechert
  */
 public class ForestParserTest {

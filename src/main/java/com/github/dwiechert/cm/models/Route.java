@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Class to hold information about a route.
- * 
+ *
  * @author Dan Wiechert
  */
 public class Route {
@@ -58,7 +58,7 @@ public class Route {
 
 	/**
 	 * Adds a coordinate to this route.
-	 * 
+	 *
 	 * @param coordinate
 	 *            The coordinate to add.
 	 */
@@ -137,7 +137,7 @@ public class Route {
 
 	/**
 	 * Provides a nicely formatted route.
-	 * 
+	 *
 	 * @return The formatted route.
 	 */
 	public String format() {

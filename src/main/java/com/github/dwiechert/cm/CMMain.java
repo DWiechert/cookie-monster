@@ -9,7 +9,7 @@ import com.github.dwiechert.cm.utils.ForestSolver;
 
 /**
  * Main entry point for cookie-monster solver.
- * 
+ *
  * @author Dan Wiechert
  */
 public class CMMain {
@@ -17,7 +17,7 @@ public class CMMain {
 
 	/**
 	 * Main method for the solver.
-	 * 
+	 *
 	 * @param args
 	 *            The command line arguments. Must provide a forest file to parse.
 	 * @throws IllegalArgumentException

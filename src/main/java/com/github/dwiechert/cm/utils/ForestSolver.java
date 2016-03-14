@@ -13,7 +13,7 @@ import com.github.dwiechert.cm.models.Route;
 
 /**
  * Class to solve a route through the forest.
- * 
+ *
  * @author Dan Wiechert
  */
 public class ForestSolver {
@@ -21,7 +21,7 @@ public class ForestSolver {
 
 	/**
 	 * Solves the forest of integers for the route with the highest total number.
-	 * 
+	 *
 	 * @param forest
 	 *            The forest of integers.
 	 * @return The route with the highest total.
@@ -56,7 +56,7 @@ public class ForestSolver {
 
 	/**
 	 * Verifies the forest is a square.
-	 * 
+	 *
 	 * @param forest
 	 *            The forest.
 	 * @return {@code True} if the forest is a square, {@code false} otherwise.
@@ -76,7 +76,7 @@ public class ForestSolver {
 
 	/**
 	 * Gets all of the possible routes through the forest.
-	 * 
+	 *
 	 * @param forest
 	 *            The forest to parse.
 	 * @param row

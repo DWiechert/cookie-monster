@@ -2,7 +2,7 @@ package com.github.dwiechert.cm.models;
 
 /**
  * Class to hold information about a coordinate.
- * 
+ *
  * @author Dan Wiechert
  */
 public class Coordinate {
@@ -22,7 +22,7 @@ public class Coordinate {
 
 	/**
 	 * Full constructor.
-	 * 
+	 *
 	 * @param x
 	 *            The x coordinate.
 	 * @param y
@@ -83,7 +83,7 @@ public class Coordinate {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -98,7 +98,7 @@ public class Coordinate {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class Coordinate {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -137,7 +137,7 @@ public class Coordinate {
 
 	/**
 	 * Provides a nicely formatted coordinate.
-	 * 
+	 *
 	 * @return The formatted coordinate.
 	 */
 	public String format() {

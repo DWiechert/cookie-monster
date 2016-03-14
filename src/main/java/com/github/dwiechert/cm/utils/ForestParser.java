@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Class to parse a forest from a file.
- * 
+ *
  * @author Dan Wiechert
  */
 public class ForestParser {
@@ -19,7 +19,7 @@ public class ForestParser {
 
 	/**
 	 * Parses a forest of integers from the provided file.
-	 * 
+	 *
 	 * @param file
 	 *            The file to parse.
 	 * @return The parsed forest of integers.
@@ -62,7 +62,7 @@ public class ForestParser {
 
 	/**
 	 * Translates a list into an array.
-	 * 
+	 *
 	 * @param list
 	 *            The list.
 	 * @return The array.
