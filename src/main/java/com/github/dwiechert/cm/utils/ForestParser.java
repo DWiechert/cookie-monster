@@ -29,9 +29,7 @@ public class ForestParser {
 	public int[][] parseForest(final String file) {
 		final List<List<Integer>> forest = new ArrayList<>();
 
-		BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
+		try(final BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
 			String line;
 			while ((line = reader.readLine()) != null) {
@@ -50,14 +48,6 @@ public class ForestParser {
 		} catch (final NumberFormatException e) {
 			LOGGER.error("Error parsing forest.", e);
 			throw new IllegalStateException("Error parsing forest.", e);
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					throw new RuntimeException("Error closing reader.", e);
-				}
-			}
 		}
 
 		int counter = 0;
